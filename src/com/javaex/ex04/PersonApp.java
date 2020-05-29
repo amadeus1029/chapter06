@@ -3,12 +3,11 @@ package com.javaex.ex04;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class PersonApp {
 
     public static void main(String[] args) throws IOException {
-        InputStreamReader isr = new InputStreamReader(System.in,"UTF-8");
+        InputStreamReader isr = new InputStreamReader(System.in, "UTF-8");
         BufferedReader br = new BufferedReader(isr);
         List<Person> personList = new ArrayList<Person>();
         readList(personList);
@@ -29,7 +28,7 @@ public class PersonApp {
                     break;
                 case "2":
                     System.out.println("이름, 핸드폰번호, 회사번호의 형태로 입력해주세요");
-                    String str= br.readLine();
+                    String str = br.readLine();
                     String[] infoArray = str.split(",");
                     String name = infoArray[0].trim();
                     String mobile = infoArray[1].trim();
@@ -38,14 +37,14 @@ public class PersonApp {
                     writeList(personList);
                     System.out.println("입력을 완료하였습니다");
                     break;
-                case "3" :
+                case "3":
                     System.out.println("삭제할 번호를 입력해주세요");
-                    for(int i=0;i<personList.size();i++) {
-                        System.out.println(i+1+"."+personList.get(i).getName());
+                    for (int i = 0; i < personList.size(); i++) {
+                        System.out.println(i + 1 + "." + personList.get(i).getName());
                     }
                     String order = br.readLine();
                     int intOrder = Integer.parseInt(order);
-                    personList.remove(intOrder -1);
+                    personList.remove(intOrder - 1);
                     writeList(personList);
                     System.out.println("삭제를 완료했습니다");
                     break;
@@ -57,7 +56,7 @@ public class PersonApp {
                     System.out.println("잘못 입력하셨습니다");
                     break;
             }
-        } while(!menuEnd);
+        } while (!menuEnd);
 
         br.close();
     }
@@ -69,7 +68,7 @@ public class PersonApp {
         OutputStreamWriter ow = new OutputStreamWriter(out, "UTF-8");
         BufferedWriter bw = new BufferedWriter(ow);
 
-        for(Person p : pList) {
+        for (Person p : pList) {
             bw.write(p.toString());
         }
         bw.close();

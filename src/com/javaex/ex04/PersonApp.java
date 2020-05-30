@@ -95,7 +95,6 @@ public class PersonApp {
     public static void removePerson(List<Person> list, String str) {
         int intOrder = Integer.parseInt(str);
         list.remove(intOrder - 1);
-        System.out.println("삭제를 완료했습니다");
     }
 
     //시스템 종료시에 텍스트 파일 변경 메소드

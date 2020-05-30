@@ -75,9 +75,9 @@ public class PersonApp {
     //목록 호출 메소드
     public static void showList(List<Person> list) {
         int i = 1;
-        for (Object p : list) {
+        for (Person p : list) {
             System.out.println(i + ".");
-            ((Person) p).showInfo();
+            p.showInfo();
             i++;
         }
     }
@@ -103,7 +103,7 @@ public class PersonApp {
         OutputStreamWriter ow = new OutputStreamWriter(target, "UTF-8");
         BufferedWriter bw = new BufferedWriter(ow);
 
-        for (Object p : list) {
+        for (Person p : list) {
             bw.write(p.toString());
         }
         bw.close();
